@@ -1,0 +1,11 @@
+﻿html, body, div, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, address, ul, li, dl, dr, dd,
+table, th, td, form, fieldset,img {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	border: 0;
+}
+#meerkat-wrap,
+#imobile_adspotdiv1,
+#sitemix_pr_footer_js{display:none !important;}

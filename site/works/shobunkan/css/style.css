@@ -1,0 +1,362 @@
+@charset "utf-8";
+/*関大共通ヘッダーのスタイル調整================================*/
+body #kandaicommon_header{
+	height:42px;
+	background-position:bottom left;
+	background-color:#fff;
+	
+	/*display:none; スマホビューでは共通ヘッダーを非表示にするタグ*/
+}
+body #kandaicommon_header img.kandaicommon_title{
+	padding:8px 0 0 1%;
+	box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+}
+body #kandaicommon_header ul#kandaicommon_navi{
+	width:190px;
+	height:42px;
+	overflow: hidden;
+	float:right;
+	position:fixed;
+	right:1%;
+}
+
+body #kandaicommon_header ul#kandaicommon_navi li { float: left;}
+
+body #kandaicommon_header ul#kandaicommon_navi li.kandaicommon_navi01{
+	width:auto;
+	display:none;/*スマホビューでのみ「関西大学ホーム」を非表示にするタグ（ＩＴセンターHP参考）*/
+}
+
+body #kandaicommon_header ul#kandaicommon_navi li.kandaicommon_navi02{ width:86px;}
+
+body #kandaicommon_header ul#kandaicommon_navi li.kandaicommon_navi03{ width:104px;}
+
+body #kandaicommon_header ul#kandaicommon_navi li.kandaicommon_navi04{ width:91px;}
+
+body #kandaicommon_header ul#kandaicommon_navi li.kandaicommon_navi04 a{ margin-left:9px;}
+
+/*===========================================================================================*/
+/*共通の設定======================================================*/
+body{
+	height:110%;
+	margin:0 auto;
+	font-size:70%;
+	-webkit-overflow-scrolling:touch;
+}
+
+h1,h2{
+	font-weight:bold;
+	text-align:center;
+	background-color:#333399;
+	color:white;
+	padding:0.25em 0;
+	border-radius:4px;
+}
+
+h1{
+	font-size:150%;
+	width:100%;
+	letter-spacing:0.25em;
+	margin-bottom:2%;
+}
+
+h2{
+	font-size:120%;
+	width:80%;
+}
+ 
+button{
+	font-size:80% !important;
+	font-weight:bold !important;
+	
+
+}
+ 
+img{
+	border-radius:4px;
+}
+
+video{
+	width:100%;
+}
+
+a,a:hover,a:focus,a:active,a:visited{
+	text-decoration:none;
+}
+
+main{
+	position:relative;
+	overflow:hidden;
+	height:auto;
+	margin:0 auto;
+	padding:10px;
+	max-width:950px;
+}
+
+article{
+	width:100%;
+	font-size:170%;
+	font-weight:normal;
+	letter-spacing:0.1em;
+	border-radius:4px;
+}
+
+section{
+	height:auto;
+	margin:0 auto;
+	padding:10px;
+	max-width:950px;
+}
+
+article > section:nth-child(even){
+	background-color:rgba(0,0,255,0.1);
+}
+
+ul{
+	list-style:inside;
+}
+
+li > ul{/*入れ子リストのスタイル*/
+	list-style:circle inside;
+	padding-left:1em;
+}
+
+#section1 li,
+#section2 li{/*リスト内の2行目のインデント*/
+	padding-left:1em;
+	text-indent:-1em;
+}
+
+aside{
+	font-size:150%;
+	margin:3% 5%;
+	border-radius:4px;
+}
+/*ヘッダーのスタイル=================================================*/
+header{
+	background-color:#333399;
+	width:100%;
+	height:auto;
+	border-radius:4px;
+	text-align:center;
+}
+
+img[alt="header"]{
+	max-width:900px;
+	width:95%;
+	padding-left:5%;
+	border-radius:4px;
+	margin-bottom:10%;
+}
+/*メニューボタンのスタイル--------------------------------*/
+.fixed{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:999;
+}
+
+nav{
+	font-size:auto;
+	background-color:#333399;
+	letter-spacing:1px;
+	font-weight:bold;
+	text-align:center;
+	padding:5px 5px;
+	line-height:250%;
+	white-space:nowrap;
+}
+
+nav > a{
+	color:white;
+	padding:0.8% 2%;
+	white-space:nowrap;
+	background-color:#4462c4;
+	-webkit-box-:2px 2px 2px rgba(000,000,000,0.3);
+	border-radius:4px;
+}
+
+nav > a:hover,
+nav > a:focus{
+	color:white;
+	background-color:#6684e6;
+}
+
+nav > a:active{
+	outline:0;
+	-webkit-box-:inset 0 3px 5px rgba(0,0,0,.500);
+	box-:inset 0 3px 5px rgba(0,0,0,.500);
+}
+
+#yoyaku,
+nav > a:last-child{
+	text-align:center;
+	color:white;
+	white-space:nowrap;
+	background-color:#DD0000;
+	border-radius:4px;
+}
+
+#yoyaku:hover,
+nav > a:last-child:hover{
+	color:white;
+	background-color:#FFB6C1;
+}
+
+#yoyaku{
+	padding:1%;
+	margin:1%;
+}
+
+/*新着情報=======================*/
+hr{
+	margin:0;
+	border-color:#ccc;
+	border-width:2px;
+}
+/*利用案内===========================*/
+img[alt="map"]{
+	border:solid #333399 5px;
+	width:100%;
+	border-radius:4px;
+}
+/*各施設紹介==============================*/
+.flexslider{
+	background-color:rgba(0,0,255,0.01);
+	border-color:rgba(0,0,255,0.01);
+}
+
+.flexslider .slides img {
+	max-width:100%;
+	width:auto;
+	margin:0 auto;
+}
+
+.slides{
+	word-break:break-all;
+}
+
+.flex-direction-nav a {
+	top:25%;
+}
+
+/*PAGE TOPのスタイル*/
+#page-top{
+    position:fixed;
+    bottom:3%;
+    right:10%;
+	z-index:10;
+    background:rgba(51,51,153,0.7);
+    padding:1em;
+    text-align:center;
+    display:block;
+	border-radius:50%;
+}
+
+#page-top:hover{
+	cursor:pointer;
+    background:rgba(51,51,153,1);
+}
+
+footer{
+	width:100%;
+	background-color:#333399;
+	font-size:130%;
+	color:#fff;
+	text-align:center;
+	padding:5px 0 5px;
+	overflow:hidden;
+}
+
+/*タブレットのスタイル==========================================================*/
+@media all and (min-width:480px){	
+	/*共通ヘッダーのスタイル*/
+	body #kandaicommon_header{
+		display:block;/* タブレット・PCビューでは共通ヘッダーを表示させるタグ*/
+	}
+	body #kandaicommon_header ul#kandaicommon_navi{
+		width:auto;
+		height:35px;
+		margin-top:7px;
+		right:5%;
+	}
+	body #kandaicommon_header ul#kandaicommon_navi li.kandaicommon_navi02{
+		width:auto;
+	}
+	body #kandaicommon_header ul#kandaicommon_navi li.kandaicommon_navi03{
+		width:auto;
+	}
+	body #kandaicommon_header ul#kandaicommon_navi li.kandaicommon_navi04{
+		width:auto;
+	}
+	body #kandaicommon_header ul#kandaicommon_navi li.kandaicommon_navi05{
+		width:auto;
+	}
+	/*共通ヘッダーのスタイルここまで*/
+	
+	body{
+		font-size:70%;
+	}
+	
+	nav{
+		font-size:180%;
+	}
+	
+	.flex-direction-nav a {
+		top:35%;
+	}
+	
+	h2{
+		width:50%;
+	}
+}
+
+
+/*PCのスタイル=================================================================*/
+@media all and (min-width:768px){	
+	body{
+		font-size:100%;
+	}
+	
+	body #kandaicommon_header img.kandaicommon_title{
+		padding-left:5%;
+	}
+	body #kandaicommon_header ul#kandaicommon_navi li.kandaicommon_navi01{
+		display:block;
+	}
+	
+	h2{
+		width:40%;
+	}
+	
+	#section1{
+		margin-top:  15%;/*  リンク位置上昇分 */
+}
+		
+	#section2{
+		padding-top: 5%;  /*上昇分を戻す分 */
+		margin-bottom:  35%;
+	}
+	
+	#section3{
+		padding-top: 5%;  /*上昇分を戻す分 */
+	}
+
+	.flexslider .slides img,
+	video {
+		max-height:400px;
+	}
+	
+	.flex-direction-nav a {
+		top:40%;
+	}
+	
+	li>h2,li>p{
+		margin:1em 10% auto;
+	}
+	
+	#page-top{
+		padding:2em;
+	}
+}

@@ -1,0 +1,158 @@
+@charset "utf-8";
+/*----------------------------------------------*/
+.td-headfoot, .td-public{
+	display:none;
+}
+
+body {
+	background:;
+	background-attachment: fixed;
+	background-position: center top;
+}
+
+.table-main {
+	/*background-color:rgba(204,0,0,0.1);
+	border: 4px double #999;*/
+	border-radius:4px;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+
+	padding: 10px;
+	text-align: center;
+}
+
+.table-title {
+	width: 100%;
+}
+
+.td-title {
+	font-weight: bold;
+	text-align: center;
+}
+
+.table-message {
+	width: 100%;
+	font-weight:bold;
+	color:white;
+}
+
+.td-message {
+	font-size:100%;
+	color:white;
+	background-color:rgba(204,0,0,0.8);
+	padding: 3px;
+	text-align: center;
+	border-radius:4px;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+}
+
+.td-error {
+	font-weight: bold;
+	padding:0.5em 1em;
+	color:red;
+	width:100%;
+}
+
+.table-item {
+	width: 100%;
+}
+
+.td-item-title {
+	font-weight: bold;
+	background-color:rgba(204,0,0,0.8);
+	color:white;
+	text-align: center;
+	width: 120px;
+	padding: 5px;
+	margin:10px;
+	border-radius:4px;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+}
+
+.td-item-comment {
+	color: #234241;
+	background-color:rgba(204,0,0,0.1);
+	padding: 5px;
+	border-radius:4px;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+}
+
+.form-textline01 {
+	width:20em;;
+}
+
+.form-textline02 {
+	width:10em;
+}
+
+.form-textline03 {
+	width: 370px;
+}
+
+.form-textline04 {
+	width: 40px;
+}
+
+.form-upfile {
+	width: 250px;
+}
+
+.form-textline {
+}
+
+.form-textbox {
+	color: #333333;
+	width:90%;
+	height:20em;
+}
+
+.btn hide,.form-upfile{
+	border-radius:4px;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+}
+
+.table-submit {
+	width: 100%;
+	margin:0;
+}
+
+.td-submit {
+	background-color:rgba(204,0,0,0.1);
+	text-align: center;
+	height:50px;
+	padding: 3px;
+	border-radius:4px;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+}
+
+.form-button{
+	color:#cc3333;
+	font-weight:bold;
+	font-size:100%;
+	padding:0.8% 2%;
+	background-color:white;
+	border-width:2px;
+	border-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+
+	-webkit-transition: all .3s;
+	transition: all .3s;
+}
+	
+.form-button:hover, .form-button:focus{
+	color:white;
+	border-color:white;
+	background-color:#ff9999;
+}
+
+.form-button:active{
+	outline:0;
+	-webkit-box-:inset 0 3px 5px rgba(0,0,0,.500);
+	box-:inset 0 3px 5px rgba(0,0,0,.500);
+}

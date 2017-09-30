@@ -1,0 +1,592 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+	<meta charset="UTF-8" />
+	<title>フランス語Leçon3練習問題</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script><!-- jquery 本体-->
+	<script language="JavaScript" src="js/script.js"></script>
+	<script language="JavaScript" src="js/overwrap.js"></script>
+	<script language="JavaScript" src="js/checkanswer.js"></script>
+	<script type="text/javascript" src="js/ac_quicktime.js"></script>
+	<script language="JavaScript" src="js/scormapi.js"></script>
+</head>
+
+<body onresize="setPositionOverwrap()" onunload="MyFin()">
+<audio id="audio1" src="audio/l3_ex_title.mp3"></audio>
+
+<div id="header">
+	<h1>Exercices Leçon 3</h1>
+</div>
+
+<div id="wrap">
+
+	<!--***************** 問題集背景リスト ******************-->
+	<div id="backgroundlist" onContextmenu="return false">
+		<div id="background1"></div>
+		<div id="backgournd2"></div>
+	</div>
+
+	<!--***************** ボックスリスト ******************-->
+	<div id="boxlist">
+		<div id="boxlist1">
+			<div class="box" id="box1" onclick="clickBox('overwrap1','block')"><p>解答済み</p></div>
+			<div class="box" id="box2" onclick="clickBox('overwrap2','block')"><p>解答済み</p></div>
+			<div class="box" id="box3" onclick="clickBox('overwrap3','block')"><p>解答済み</p></div>
+      		<div class="box" id="box4" onclick="clickBox('overwrap4','block')"><p>解答済み</p></div>
+      		<div class="box" id="box5" onclick="clickBox('overwrap5','block');playSound('audio5')"><p>解答済み</p></div>
+      		<div class="box" id="box6" onclick="clickBox('overwrap6','block')"><p>解答済み</p></div>
+      		<div class="box" id="box7" onclick="clickBox('overwrap7','block');playSound('audio7')"><p>解答済み</p></div>
+			<div class="box" id="box8" onclick="clickBox('overwrap8','block');playSound('audio8')"><p>解答済み</p></div>
+		</div>
+		<!--ページが３ページ以上になる場合に使う-->
+		<div id="boxlist2">
+		</div>
+	</div>
+
+	<!--***************** 暗幕 ******************-->
+	<div id="black" onclick="clickBlackCurtain()"></div>
+
+	<!--***************** 問題画面リスト ******************-->
+	<div id="overwraplist">
+
+		<!--* 問題画面① *-->
+		<div id="overwrap1" class="overwrap">
+			<input type="button" value="" class="closebutton" onclick="clickBox('overwrap1','none')"><br>
+			<div class="sentence">
+				<b>1. Complétez avec « vous » ou « toi ».</b><br>
+				空欄に vous か toi を書いて、会話を完成させましょう。<br>
+			</div>
+			<div id="question1">
+				   1) — Salut. Ça va ?<br>
+					　 — Oui, ça va bien, merci. Et <input type="text" class="Blank" value="toi" /> ?<br>
+					　 — Très bien, merci.<br>
+                    <br>
+				   2) — Bonjour Élodie, comment vas-tu ?<br>
+					　 — Ça va bien, merci. Et <input type="text" class="Blank" value="toi" /> ?<br>
+					　 — Très bien, merci.<br>
+                    <br>
+				   3) — Bonjour monsieur, comment allez-<input type="text" class="Blank" value="vous" /> ?<br>
+					　 — Je vais bien, merci. Et <input type="text" class="Blank" value="vous" /> ?<br>
+					　 — Très bien, merci.<br>
+                    <br>
+				   4) — Salut Thomas, tu va bien ?<br>
+					　 — Oui, très bien. Et <input type="text" class="Blank" value="toi" /> ?<br>
+					　 — Comme ci comme ça.<br>
+			</div><!-- question1終了 -->
+
+			<input type="button" value="答え合わせ" class="check" onclick="QuestionCheck1()" />
+			<p id="result1" class="result"></p>
+		</div><!-- 問題画面①終了 -->
+
+		<!--* 問題画面② *-->
+		<div id="overwrap2" class="overwrap">
+			<input type="button" value="" class="closebutton" onclick="clickBox('overwrap2','none')"><br>
+			<div class="sentence">
+				<b>2. Complétez.</b><br>
+				空欄に必要な語句を書きましょう。<br>
+			</div>
+			<div id="question2">
+				1) — Salut Pierre, ça <input type="text" class="Blank" value="va" /> ?<br>
+				　 — <input type="text" class="Blank" value="Ça" /> va, merci. Et <input type="text" class="Blank" value="toi" /> ?<br>
+				　 — Ça va très <input type="text" class="Blank" value="bien" />.<br>
+                <br>
+				2) — Bonsoir, monsieur Saint Laurent, <input type="text" class="Blank" value="vous " /> allez bien ?<br>
+				　 — Oui, <input type="text" class="Blank" value="je" /> vais, <!--<input type="text" class="Blank" value="bien" />--> merci. Et <input type="text" class="Blank" value="vous" /> ?<br>
+				　 — Je <input type="text" class="Blank" value="vais" /> très <input type="text" class="Blank" value="bien" />, merci.<br>
+                <br>
+				3) — Alors, <input type="text" class="Blank" value="au" /> revoir, mademoiselle Chanel.<br>
+				　 — Au <input type="text" class="Blank" value="revoir" />, monsieur Saint Laurent. Le bonjour à monsieur Cardin.<br>
+                <br>
+				4) — Bon alors, salut Yves. <input type="text" class="Blank" value="À" /> demain.<br>
+				　 — <input type="text" class="Blank" value="Salut" />  Pierre. À <input type="text" class="Blank" value="demain" />.<br>
+			</div><!-- question2終了 -->
+
+			<p class="specialcharacterlist"></p>
+			<input type="button" value="答え合わせ" class="check" onclick="QuestionCheck2()" />
+			<p id="result2"  class="result"></p>
+		</div><!-- 問題画面②終了 -->
+
+		<!--* 問題画面③ *-->
+		<div id="overwrap3" class="overwrap">
+			<input type="button" value="" class="closebutton" onclick="clickBox('overwrap3','none')"><br>
+			<div class="sentence">
+				<b>3. Complétez avec «ce», «c'» ou «ça».</b><br>
+				空欄に ce, c' または çaを書きましょう。
+			</div>
+			<div id="question3">
+				1) <input type="text" class="Blank" value="Ça">s'écrit comment ?<br>
+				2) <input type="text" class="Blank" value="C'">est monsieur Suzuki.<br>
+				3) <input type="text" class="Blank" value="Ça"> va ?<br>
+				4) Comme ci comme <input type="text" class="Blank" value="ça">.<br>
+				5) <input type="text" class="Blank" value="Ce"> sont Farid et Élodie ?<br>
+				6) Qui est-<input type="text" class="Blank" value="ce"> ?
+			</div>
+
+			<p class="specialcharacterlist"></p>
+			<input type="button" value="答え合わせ" class="check" onclick="QuestionCheck3()" />
+			<p id="result3"  class="result"></p>
+		</div><!-- 問題画面③終了 -->
+
+		<!--* 問題画面④ *-->
+		<div id="overwrap4" class="overwrap">
+			<input type="button" value="" class="closebutton" onclick="clickBox('overwrap4','none')"><br>
+			<div class="sentence">
+				<b>4. Qu'est-ce qu'on dit ?</b><br>
+				こんなときに、なんと言いますか？
+			</div>
+			<div id="question4">
+			<table>
+				<tr>
+				<td width="250">1)<br>  <img onContextmenu="return false" src="img/q4_1.jpg" width="110" height="110" alt=""></td>
+				<td>2)<br>  <img onContextmenu="return false" src="img/q4_2.jpg" width="110" height="110" alt=""></td>
+				</tr>
+				<tr>
+				<td>Bon Anniversaire !</td>
+				<td><input type="text" class="Blank" value="Bon"> <input type="text" class="Blank" value="appétit"></td>
+				</tr>
+				<tr>
+				<td>3)<br>  <img onContextmenu="return false" src="img/q4_3.jpg" width="110" height="110" alt=""></td>
+				<td>4)<br>  <img onContextmenu="return false" src="img/q4_4.jpg" width="110" height="110" alt=""></td>
+				</tr>
+				<tr>
+				<td><input type="text" class="Blank" value="Bon"> <input type="text" class="Blank" value="voyage"></td>
+				<td><input type="text" class="Blank" value="Bonne"> <input type="text" class="Blank" value="nuit"></td>
+				</tr>
+			</table>
+			</div>
+
+			<p class="specialcharacterlist"></p>
+			<input type="button" value="答え合わせ" class="check" onclick="QuestionCheck4()" />
+			<p id="result4"  class="result"></p>
+		</div><!-- 問題画面④終了 -->
+
+		<!--* 問題画面⑤ *-->
+		<div id="overwrap5" class="overwrap">
+		<audio id="audio5" src="audio/l3_ex5_title.mp3">
+		</audio>
+			<input type="button" value="" class="closebutton" onclick="clickBox('overwrap5','none')"><br>
+			<div class="sentence">
+				<b>5. Écoutez et complétez avec «n» ou «nne».</b><br>
+				録音を聞き、«n» または «nne» を空欄に書きましょう。
+			</div>
+		<div id="question5">
+            <table>
+            	<tr><td width="200">
+				1) Bo<input type="text" class="Blank" value="nne"> soirée
+                </td><td>
+                <input type="button" value="再生" align="right" onclick="appearAudio('','audio/l3_ex5_1.mp3','q5_audio');"></td></tr>
+            	<tr><td>
+				2) Bo<input type="text" class="Blank" value="n"> soir
+                </td><td>
+                <input type="button" value="再生" align="right" onclick="appearAudio('','audio/l3_ex5_2.mp3','q5_audio');"></td></tr>
+            	<tr><td>
+				3) Bo<input type="text" class="Blank" value="n"> week-end
+                </td><td>
+                <input type="button" value="再生" align="right" onclick="appearAudio('','audio/l3_ex5_3.mp3','q5_audio');"></td></tr>
+            	<tr><td>
+				4) Bo<input type="text" class="Blank" value="nne"> journée
+                </td><td>
+                <input type="button" value="再生" align="right" onclick="appearAudio('','audio/l3_ex5_4.mp3','q5_audio');"></td></tr>
+            	<tr><td>
+				5) Bo<input type="text" class="Blank" value="n"> courage
+                </td><td>
+                <input type="button" value="再生" align="right" onclick="appearAudio('','audio/l3_ex5_5.mp3','q5_audio');"></td></tr>
+            	<tr><td>
+                6) Bo<input type="text" class="Blank" value="nne"> chance
+                </td><td>
+                <input type="button" value="再生" align="right" onclick="appearAudio('','audio/l3_ex5_6.mp3','q5_audio');"></td></tr>
+            </table><br>
+			<div id="q5_audio"></div>
+		</div>
+
+			<input type="button" value="答え合わせ" class="check" onclick="QuestionCheck5()" />
+			<p id="result5"  class="result"></p>
+		</div><!-- 問題画面⑤終了 -->
+
+        <!--* 問題画面⑥ *-->
+		<div id="overwrap6" class="overwrap">
+			<input type="button" value="" class="closebutton" onclick="clickBox('overwrap6','none')"><br>
+			<div class="sentence">
+				<b>6.Écrivez une consonne et une voyelle nasale.</b><br>
+				下線部の発音が1.鼻母音 か2. 母音＋子音 かを選びましょう。
+			</div>
+			<div id="question6">
+      	<table>
+        	<tr>
+        		<td width="200">1) Mad<u>em</u>oiselle</td>
+        		<td width="200">2) ex<u>em</u>ple</td>
+        		<td width="200">3) c<u>om</u>ment</td>
+        	</tr>
+          <tr>
+          	<td>
+              <div class="checkList">
+              	<form>
+              	<label><input type="radio" class="checkli" id="q6_1_1"name="q1" checked>子音</label>
+                <label><input type="radio" class="checkli" id="q6_1_2"name="q1" >鼻母音</label>
+                </form>
+              </div>
+            </td>
+            <td>
+              <div class="checkList">
+              	<form>
+              	<label><input type="radio" class="checkli" id="q6_2_1"name="q2" >子音</label>
+              	<label><input type="radio" class="checkli" id="q6_2_2"name="q2" checked>鼻母音</label>
+              	</form>
+              </div>
+            </td>
+            <td>
+            	<div class="checkList">
+              	<form>
+              	<label><input type="radio" class="checkli" id="q6_3_1"name="q3" checked>子音</label>
+              	<label><input type="radio" class="checkli" id="q6_3_2"name="q3" >鼻母音</label>
+              	</form>
+              </div>
+            </td>
+          </tr>
+          <tr>
+          	<td><br>4) mad<u>am</u>e</td>
+          	<td><br>5) c<u>om</u>pr<u>en</u>dre</td>
+          	<td><br>6) c<u>om</u>bien</td>
+          </tr>
+          <tr>
+          	<td>
+              <div class="checkList">
+             	<form>
+             	<label><input type="radio" class="checkli" id="q6_4_1"name="q4" checked>子音</label>
+                <label><input type="radio" class="checkli" id="q6_4_2"name="q4" >鼻母音</label>
+                </form>
+              </div>
+            </td>
+            <td>
+              <div class="checkList">
+              	<form>
+              	<label><input type="radio" class="checkli" id="q6_5a_1"name="q5a" >子音</label>
+                <label><input type="radio" class="checkli" id="q6_5a_2"name="q5a" checked>鼻母音</label>
+                </form>
+              </div>
+				<div class="checkList">
+					<form>
+					<label><input type="radio" class="checkli" id="q6_5b_1"name="q5b" >子音</label>
+					<label><input type="radio" class="checkli" id="q6_5b_2"name="q5b" checked>鼻母音</label>
+					</form>
+				</div>
+            </td>
+            <td>
+	            <div class="checkList">
+	            	<form>
+	            	<label><input type="radio" class="checkli" id="q6_6_1"name="q6" >子音</label>
+	              	<label><input type="radio" class="checkli" id="q6_6_2"name="q6" checked>鼻母音</label>
+	              	</form>
+	            </div>
+            </td>
+          </tr>
+          <tr>
+          	<td><br>7) b<u>on</u>ne</td>
+          	<td><br>  ch<u>an</u>ce</td>
+          	<td><br>8) d<u>em</u>ain</td>
+          </tr>
+          <tr>
+          	<td>
+            	<div class="checkList">
+              	<form>
+              	<label><input type="radio" class="checkli" id="q6_7a_1"name="q7a" checked>子音</label>
+              	<label><input type="radio" class="checkli" id="q6_7a_2"name="q7a" >鼻母音</label>
+              	</form>
+              </div>
+            </td>
+            <td>
+	            <div class="checkList">
+	            	<form>
+	            	<label><input type="radio" class="checkli" id="q6_7b_1"name="q7b" >子音</label>
+	            	<label><input type="radio" class="checkli" id="q6_7b_2"name="q7b" checked>鼻母音</label>
+	            	</form>
+	            </div>
+            </td>
+            <td>   
+            	<div class="checkList">
+              	<form>
+              	<label><input type="radio" class="checkli" id="q6_8_1"name="q8" checked>子音</label>
+              	<label><input type="radio" class="checkli" id="q6_8_2"name="q8" >鼻母音</label>
+              	</form>
+              </div>
+            </td>
+            </tr>
+            <tr>
+            	<td><br>9) l<u>un</u>di</td>
+            	<td><br>  v<u>en</u>dredi</td>
+            	<td><br>  s<u>am</u>edi</td>
+            	<td  width="200"><br> dim<u>an</u>che</td>
+            </tr>
+            <tr>
+            	<td>    
+                <div class="checkList">
+                	<form>
+                	<label><input type="radio" class="checkli" id="q6_9a_1"name="q9a" >子音</label>
+                	<label><input type="radio" class="checkli" id="q6_9a_2"name="q9a" checked>鼻母音</label>
+                	</form>
+                </div>
+	            </td>
+	            <td>
+	            	<div class="checkList">
+	              	<form>
+	              	<label><input type="radio" class="checkli" id="q6_9b_1"name="q9b" >子音</label>
+	               <label> <input type="radio" class="checkli" id="q6_9b_2"name="q9b" checked>鼻母音</label>
+	                </form>
+	              </div>
+	            </td>
+	            <td>
+	            	<div class="checkList">
+	              	<form>
+	              	<label><input type="radio" class="checkli" id="q6_9c_1"name="q9c" checked>子音</label>
+	                <label><input type="radio" class="checkli" id="q6_9c_2"name="q9c" >鼻母音</label>
+	                </form>
+	              </div>
+	            </td>
+	            <td>
+	              <div class="checkList">
+	              	<form>
+	              	<label><input type="radio" class="checkli" id="q6_9d_1"name="q9d" >子音</label>
+	             	<label><input type="radio" class="checkli" id="q6_9d_2"name="q9d" checked>鼻母音</label>
+	             	</form>
+	              </div>
+	            </td>
+            </tr>
+            <tr>
+            	<td><br>10) v<u>in</u>gt-c<u>in</u>q</td>
+            	<td><br>  tr<u>en</u>te</td>
+            	<td><br>  quar<u>an</u>te</td>
+            	<td><br>  c<u>in</u>qu<u>an</u>te</td>
+            	<td width="200"><br> soix<u>an</u>te</td>
+            </tr>
+            <tr>
+            	<td>    
+                <div class="checkList">
+                	<form>
+                	<label><input type="radio" class="checkli" id="q6_10a_1"name="q10a" >子音</label>
+                	<label><input type="radio" class="checkli" id="q6_10a_2"name="q10a" checked>鼻母音</label>
+                	</form>
+                </div>
+                <div class="checkList">
+                	<form>
+                	<label><input type="radio" class="checkli" id="q6_10b_1"name="q10b" >子音</label>
+                	<label><input type="radio" class="checkli" id="q6_10b_2"name="q10b" checked>鼻母音</label>
+                	</form>
+                </div>
+	            </td>
+	            <td>
+                <div class="checkList">
+                	<form>
+                	<label><input type="radio" class="checkli" id="q6_10c_1"name="q10c" >子音</label>
+                	<label><input type="radio" class="checkli" id="q6_10c_2"name="q10c" checked>鼻母音</label>
+                	</form>
+                </div>
+            	</td>
+            	<td>
+                <div class="checkList">
+                	<form>
+                	<label><input type="radio" class="checkli" id="q6_10d_1"name="q10d" >子音</label>
+                	<label><input type="radio" class="checkli" id="q6_10d_2"name="q10d" checked>鼻母音</label>
+                	</form>
+                </div>
+              </td>
+           		<td>
+                <div class="checkList">
+                	<form>
+                	<label><input type="radio" class="checkli" id="q6_10e_1"name="q10e" >子音</label>
+                	<label><input type="radio" class="checkli" id="q6_10e_2"name="q10e" checked>鼻母音</label>
+                	</form>
+                </div>
+                <div class="checkList">
+                	<form>
+                	<label><input type="radio" class="checkli" id="q6_10f_1"name="q10f" >子音</label>
+                  	<label><input type="radio" class="checkli" id="q6_10f_2"name="q10f" checked>鼻母音</label>
+                  	</form>
+                </div>
+              </td>
+              <td>
+                <div class="checkList">
+                	<form>
+                	<label><input type="radio" class="checkli" id="q6_10g_1"name="q10g" >子音</label>
+                  	<label><input type="radio" class="checkli" id="q6_10g_2"name="q10g" checked>鼻母音</label>
+                   </form>
+                </div>
+              </td>
+            </tr>
+					<tr>
+						<td><br>11) pr<u>onon</u>ciati<u>on</u></td>
+					</tr>
+            <tr>
+            	<td> 
+                <div class="checkList">
+                	<form>
+                	<label><input type="radio" class="checkli" id="q6_11a_1"name="q11a" checked>子音</label>
+                	<label><input type="radio" class="checkli" id="q6_11a_2"name="q11a" >鼻母音</label>
+                	</form>
+                </div>
+                <div class="checkList">
+                	<form>
+                	<label><input type="radio" class="checkli" id="q6_11b_1"name="q11b" >子音</label>
+                	<label><input type="radio" class="checkli" id="q6_11b_2"name="q11b" checked>鼻母音</label>
+                	</form>
+                </div>
+                <div class="checkList">
+                	<form>
+                	<label><input type="radio" class="checkli" id="q6_11c_1"name="q11c" >子音</label>
+                	<label><input type="radio" class="checkli" id="q6_11c_2"name="q11c" checked>鼻母音</label>
+                	</form>
+                </div>
+             	</td>
+            </tr>
+          </table>
+		<p class="notes"> *n, mの後に母音字がなければ鼻母音で発音します。</p>
+		</div>
+
+			<input type="button" value="答え合わせ" class="check" onclick="QuestionCheck6()" />
+			<p id="result6"  class="result"></p>
+		</div><!-- 問題画面⑥終了 -->
+
+        <!--* 問題画面⑦ *-->
+		<div id="overwrap7" class="overwrap">
+		<audio id="audio7" src="audio/l3_ex7_title.mp3">
+        </audio>
+			<input type="button" value="" class="closebutton" onclick="clickBox('overwrap7','none')"><br>
+			<div class="sentence">
+				<b>7. Entourez la consonnes de liaison.</b><br>
+				下線部の中からリエゾンする子音字を選びましょう。
+			</div>
+
+			<div id="question7">
+				<table>
+					<tr>
+				<td width="250">1) C'es<u>t</u><sub>①</sub> u<u>n</u><sub>②</sub> ami italien</td>
+				<td width="150">
+				<div class="checkList">
+					<label><input type="checkbox" id="q7_1_1"name="q7_ans" value="①" checked>①</label>
+					<label><input type="checkbox" id="q7_1_2"name="q7_ans" value="②" checked>②</label>
+				</div>
+				</td>
+				<td><input type="button" value="再生" align="right" onclick="appearAudio('','audio/l3_ex7_1.mp3','q7_audio');"></td>	
+				</tr>
+				<tr>
+				<td>2) si<u>x</u><sub>①</sub> cent<u>s</u><sub>②</sub> étudiantes</td>
+				<td>
+				<div class="checkList">
+					<label><input type="checkbox" id="q7_2_1"name="q7_ans" value="①">①</label>
+					<label><input type="checkbox" id="q7_2_2"name="q7_ans" value="②" checked>②</label>
+				</div>
+				</td>
+				</td>
+				<td><input type="button" value="再生" align="right" onclick="appearAudio('','audio/l3_ex7_2.mp3','q7_audio');"></td>
+				</tr>
+				<tr>
+				<td>3) quatre-vingt<u>s</u><sub>①</sub> étudiant<u>s</u><sub>②</sub></td>
+				<td>
+				<div class="checkList">
+					<label><input type="checkbox" id="q7_3_1"name="q7_ans" value="①" checked>①</label>
+					<label><input type="checkbox" id="q7_3_2"name="q7_ans" value="②">②</label>
+				</div>
+				</td>
+				<td><input type="button" value="再生" align="right" onclick="appearAudio('','audio/l3_ex7_3.mp3','q7_audio');"></td>
+				</tr>
+			<tr>
+				<td>4) u<u>n</u><sub>①</sub> gran<u>d</u><sub>②</sub> Italien</td>
+				<td>
+				<div class="checkList">
+				  <label><input type="checkbox" id="q7_4_1"name="q7_ans" value="①">①</label>
+				  <label><input type="checkbox" id="q7_4_2"name="q7_ans" value="②" checked>②</label>
+				</div>
+			  </td>
+			  <td><input type="button" value="再生" align="right" onclick="appearAudio('','audio/l3_ex7_4.mp3','q7_audio');"></td>
+			</tr>
+			<tr>
+				<td>5) cen<u>t</u><sub>①</sub> exercice<u>s</u><sub>②</sub></td>
+				<td>
+				<div class="checkList">
+					<label><input type="checkbox" id="q7_5_1"name="q7_ans" value="①" checked>①</label>
+					<label><input type="checkbox" id="q7_5_2"name="q7_ans" value="②">②</label>
+				</div>
+			  </td>
+			  <td><input type="button" value="再生" align="right" onclick="appearAudio('','audio/l3_ex7_5.mp3','q7_audio');"></td>
+			</tr>
+			<tr>
+				<td>6) ving<u>t</u><sub>①</sub>-hui<u>t</u><sub>②</sub></td>
+				<td>
+				<div class="checkList">
+					<label><input type="checkbox" id="q7_6_1"name="q7_ans" value="①" checked>①</label>
+				  	<label><input type="checkbox" id="q7_6_2"name="q7_ans" value="②">②</label>
+				</div>
+			  </td>
+			  <td><input type="button" value="再生" align="right" onclick="appearAudio('','audio/l3_ex7_6.mp3','q7_audio');"></td>
+			</tr>
+			<tr>
+			<td>7) Commen<u>t</u><sub>①</sub> alle<u>z</u><sub>②</sub>-vous ?</td>
+			<td>
+			<div class="checkList">
+			   <label><input type="checkbox" id="q7_7_1"name="q7_ans" value="①" checked>①</label>
+			   <label><input type="checkbox" id="q7_7_2"name="q7_ans" value="②">②</label>
+			</div>
+			  </td>
+			<td><input type="button" value="再生" align="right" onclick="appearAudio('','audio/l3_ex7_7.mp3','q7_audio');"></td>
+			</tr>
+			<tr>
+			<td>8) Bo<u>n</u><sub>①</sub> aprè<u>s</u><sub>②</sub>-midi</td>
+			<td>
+			<div class="checkList">
+			<label><input type="checkbox" id="q7_8_1"name="q7_ans" value="①" checked>①</label>
+			<label><input type="checkbox" id="q7_8_2"name="q7_ans" value="②">②</label>
+			</div>
+			</td>
+			<td><input type="button" value="再生" align="right" onclick="appearAudio('','audio/l3_ex7_8.mp3','q7_audio');"></td>
+			</tr>
+		  </table><br>
+			<div id="q7_audio"></div>
+
+			</div>
+
+			<input type="button" value="答え合わせ" class="check" onclick="QuestionCheck7()" />
+			<p id="result7"  class="result"></p>
+		</div><!-- 問題画面⑦終了 -->
+
+        <!--* 問題画面⑧ *-->
+		<div id="overwrap8" class="overwrap">
+		<audio id="audio8" src="audio/l3_ex8_title.mp3">
+        </audio>
+		<input type="button" value="" class="closebutton" onclick="clickBox('overwrap8','none')"><br>
+		<div class="sentence">
+			<b>8. Écoutez et complétez oralement les dialogues.</b><br>
+			録音を聞いて空欄に適切な語句を書きましょう。<br>
+		</div>
+		<div id="question8">
+		1)	<input type="button" value="再生" onClick="appearAudio('','audio/l3_ex8_1.mp3','q8_audio')"><br>
+		 &nbsp;&nbsp;&nbsp;&nbsp;— <input type="text" class="Blank" value="Bonjour"> madame, <input type="text" class="Blank" value="comment"> allez-vous ?<br>
+		&nbsp;&nbsp;&nbsp; —  <input type="text" class="Blank" value="Je"> vais bien, <input type="text" class="Blank" value="merci">. Et <input type="text" class="Blank" value="vous">, mademoiselle ? <br>
+		&nbsp;&nbsp;&nbsp; — <input type="text" class="Blank" value="Bien">, merci. <br><br>
+		
+		2)	<input type="button" value="再生" onClick="appearAudio('','audio/l3_ex8_2.mp3','q8_audio')"><br>
+		  &nbsp;&nbsp;&nbsp;&nbsp;— <input type="text" class="Blank" value="Salut">, Farid ! <input type="text" class="Blank" value="Tu"> vas <input type="text" class="Blank" value="bien"> ? <br>
+		&nbsp;&nbsp;&nbsp;  — Bof, comme ça. Et <input type="text" class="Blank" value="toi"> ? <br>
+		&nbsp;&nbsp;&nbsp;  — <input type="text" class="Blank" value="Ça"> va.<br><br>
+		
+			<div id="q8_audio"></div>
+			</div>
+
+			<p class="specialcharacterlist"></p>
+			<input type="button" value="答え合わせ" class="check" onclick="QuestionCheck8()" />
+			<p id="result8"  class="result"></p>
+		</div><!-- 問題画面⑧終了 -->
+
+	</div>
+
+	<div id="finishButton"><input type="button" value ="解答結果を送信する" onclick="finishContents()"></div>
+	
+</div>
+
+<div id="footer">
+	<p>&copy; Kansai University</p>
+</div>
+
+</body>
+</html>

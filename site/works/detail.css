@@ -1,0 +1,157 @@
+@charset "utf-8";
+
+body{
+	font-family:"MS Serif", "New York", serif;
+	text-align:center;
+}
+
+main{
+	text-align:left;
+	/*margin:0 auto 5em;
+	max-width:80%;*/
+	margin:0 5% 5em auto;
+	max-width:85%;
+}
+
+nav{
+	text-align:left;
+	background:#cc0000;
+	width:4em;
+	height:100%;
+	margin-top:0;
+    position:fixed;
+    top:0;
+	font-size:2vw;
+	padding-top:20vh;
+	font-weight:bold;
+	line-height:1000%;
+}
+	nav > a{
+		color:#cc3333;
+		padding:7% 10% 7% 1%;
+		white-space:nowrap;
+		background:white;
+		border:white 2px;
+		border-radius:0 15% 15% 0 / 0 40% 40% 0;
+		-webkit-transition: all .3s;
+		transition: all .3s;
+	}
+	nav > a[href="#"]:hover{
+		color:white;
+		border:white;
+		background:#ff9999;
+	}
+
+h1,h2,h3,span{
+	font-family:"Helvetica Neue", Helvetica, Arial, "游ゴシック体", "Yu Gothic", YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+	margin:0.25em 0;
+}
+
+h1{
+	font-size:150%;
+}
+
+h2{
+	font-size:120%;
+}
+
+img{
+	max-width:100%;
+	width:60%;
+	border-radius:1%;
+}
+
+ol,ul,p,h3{
+	padding-left:1em;
+}
+	h3 + p{
+		padding-left:2em;
+	}
+
+p{
+	line-height:2em;
+	max-width:50em;
+}
+
+li{
+	list-style-position:inside;
+	margin-right:2em;
+}
+	ul > li{
+		display:inline;
+	}
+
+img[alt="phone"]{
+	width:20vw;
+	float:right;
+	/*margin-right:5vw;*/
+}
+
+span{
+	position:absolute;
+	background:rgba(0,0,0,0.5);
+	color:white;
+	font-weight:bold;
+	padding:0.25em 0.5em;
+	border-radius:50%;
+	z-index: 9;
+}
+
+#old{
+	position:relative;
+	float:right;
+	clear:right;
+}
+	img[alt="old"]{
+		float:right;
+		width:30vw;
+	}
+	#old > span{
+		top:-1em;
+		left:-1em;
+	}
+
+img[alt="favicon"]{
+	width:50px;
+	margin:1em;
+}
+
+img[alt="map"]{
+	width:200px;
+	margin:1em;
+}
+
+a[href*=".html"]{
+	bottom:0;
+	right:0;
+	position:fixed;
+	-webkit-transition: all 0.7s;
+	transition: all 0.7s;
+	border-style:solid;
+	border-width:5vw 10vw 0 0;
+	border-color:white black transparent transparent;
+	box-shadow:0.5em 1em 2em 1em rgba(0,0,0,1);
+}
+	a[href*=".html"]:hover{
+		border-width:10vw 20vw 0 0;
+		border-radius:0 5% 0 5%;
+		padding:0 0.5em;
+	}
+	a[href*=".html"]:before{
+		content:"サンプルを開く";
+		position:fixed;
+		bottom:4em;
+		font-weight:bold;
+	}
+		a[href*=".html"]:hover:before{
+			display:none;
+		}
+@media all and (max-width:600px){
+	main{
+		max-width:80%;
+	}
+	h1{
+		font-size:100%;
+		margin:1em 0;
+	}
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>	<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>ポスター 制作詳細</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://esashika-portfolio.jp/css/sanitize.css">
+	<link rel="stylesheet" href="../detail.css">
+	<link rel="shortcut icon" href="http://esashika-portfolio.jp/img/favicon.ico">
+	<link rel="apple-touch-icon" href="http://esashika-portfolio.jp/img/favicon.ico">
+	<style>
+		html{
+			background:rgba(0,153,0,0.1)!important;
+		}
+		img[alt="poster"]{
+			border-radius:0;
+			box-shadow:10px 10px 10px rgba(0,0,0,0.4);
+			cursor: pointer;
+			-webkit-transition:all .3s;
+			transition:all .3s;
+		}
+			img[alt="poster"]:hover{
+				opacity:0.7;
+			}
+		#double{
+			position:relative;
+			display:inline-block;
+		}
+			#double > img{
+				 width:45%;
+			}
+			#double > span:nth-child(1){
+				bottom: -1em;
+				left: 23%;
+			}
+			#double > span:nth-child(2){
+				bottom: -1em;
+				left: 68%;
+			}
+		</style>
+	<link rel="shortcut icon" href="http://esashika-portfolio.jp/img/favicon.ico">
+	<link rel="apple-touch-icon" href="http://esashika-portfolio.jp/img/favicon.ico">
+</head>
+<body>
+	<p id="double">
+		<span id="aan">A案(おもて)</span><span id="ban">B案(おもて)</span>
+		<img id="poster1" src="poster11.jpg" alt="poster">
+		<img id="poster2" src="poster21.jpg" alt="poster">
+	</p>
+	<h1>マルチメディアスタジオ 広報ポスター</h1>
+	<nav>
+		<a href="#" onclick="window.close(); return false;">トップ</a>
+		<a>作 品</a>
+	</nav>
+	<main>
+		<p>大学内の施設・マルチメディアスタジオを教職員たちに認知してもらうための宣伝用ポスター</p>
+		<p>（画像をクリックするとポスターの裏表が切り替わります。）</p>
+		<h2>制作期間</h2>	<p>１ヶ月</p>
+		<h2>制作人数</h2>	<p>１人</p>
+		<h2>担当フロー</h2>
+			<ol>
+				<li>デザイン</li>
+			</ol>
+		<h2>使用ソフト・ツール</h2>
+			<ul>
+				<li>Illustrator</li>
+				<li>Photoshop</li>
+			</ul>
+		<h2>制作の動機</h2>
+			<p>マルチメディアスタジオのリニューアルを告知するためのポスター制作を職員より指示されたため。</p>
+		<h2>工夫した点など</h2>
+			<h3>テキスト情報の見やすさ</h3>
+				<p>「施設について知らない人や非利用者」をターゲットに、「何ができるか」「利用者が何について困っているか」に焦点を当ててテキストのレイアウトを組んだ。</p>
+			<h3>施設と設備を「イメージ」させる</h3>
+				<p>スタジオや撮影機器の画像を多く使い、実際に利用するシーンを明確にイメージさせるよう視覚的な情報にこだわった。</p>
+	</main>
+<script>
+(function(){
+	"use strict";
+	var img = new Array();
+	var poster1 = document.getElementById("poster1");
+	var poster2 = document.getElementById("poster2");
+	var aan = document.getElementById("aan");
+	var ban = document.getElementById("ban");
+	var cnt1=0;
+	var cnt2=2;
+
+	img[0] = new Image();
+	img[0].src = "poster11.jpg";
+	img[1] = new Image();
+	img[1].src = "poster12.jpg";
+	img[2] = new Image();
+	img[2].src = "poster21.jpg";
+	img[3] = new Image();
+	img[3].src = "poster22.jpg";
+
+	poster1.addEventListener("click", function(){
+		  if (cnt1 == 1){
+				cnt1=0;
+				aan.innerHTML = "A案(おもて)";
+			}else{
+				cnt1=1;
+				aan.innerHTML = "A案( う ら )";
+			}
+		  this.src=img[cnt1].src;
+	});
+
+	poster2.addEventListener("click", function(){
+		if (cnt2 == 3){
+			cnt2=2;
+			ban.innerHTML = "B案(おもて)";
+		}else{
+			cnt2=3;
+			ban.innerHTML = "B案( う ら )";
+		}
+		  this.src=img[cnt2].src;
+	});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html> <html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>Stopwatch</title>
+	<link rel="stylesheet" href="http://esashika-portfolio.jp/css/sanitize.css">
+	<style>
+		html{
+			background:rgba(0, 0, 255, 0.1) !important;
+		}
+		body{
+			text-align:center;
+		}
+		p{
+			color:#00aaff;
+			font-weight:bold;
+		}
+		#timerText{
+			color:#00aaff;
+			font-size:128px;
+			margin:40px auto;
+			text-shadow:0 1px 0 rgba(255,255,255,0.5);
+		}
+		.btn{
+			display:inline-block;
+			width:100px;
+			padding:7px;
+			border-radius:7px;
+			box-shadow:0 4px o #0088cc;
+			color:white;
+			background:#00aaff;
+		}
+			.btn + .btn{
+				margin-left:10px;
+			}
+			.btn.active{
+				opacity:1.0;
+				cursor:pointer;
+			}
+			.btn.inactive{
+				opacity:0.5;
+			}
+	</style>
+</head>
+<body>
+	<p>
+		<span id="timerText">00.00</span>
+		lap：<span id="lapText">00.00</span>
+	</p>
+	<div id="start">START</div>
+	<div id="stop">STOP</div>
+	<div id="lap">LAP</div>
+	<div id="reset">RESET</div>
+	<p id="clock">0000/00/00 00:00:00</p>
+	<script>
+		function getClock(){
+			var now = new Date();
+			document.getElementById("clock").innerHTML = now.toLocaleString();
+			setTimeout("getClock()",1000);
+		}
+		window.onload = function(){
+			getClock();
+		};
+		
+		(function() {
+			"use strict";
+
+			var startTime,
+				timerId,
+				elapsedTime = 0,
+				isRunning = false;
+				
+			var startButton = document.getElementById("start");
+			var stopButton = document.getElementById("stop");
+			var lapButton = document.getElementById("lap");
+			var resetButton = document.getElementById("reset");
+			var timerText = document.getElementById("timerText");
+			var lapText = document.getElementById("lapText");
+			
+			function setButtonState(start,stop,lap,reset){
+				startButton.className = start ? "btn active" : "btn inactive";
+				stopButton.className = stop ? "btn active" : "btn inactive";
+				lapButton.className = lap ? "btn active" : "btn inactive";
+				resetButton.className = reset ? "btn active" : "btn inactive";
+			}
+
+			setButtonState(true,false,false,false);
+			
+			function zeroFormat(z){
+				if(z < 10){
+					return z = ("0" + z).slice(-5);
+				}else{return z;}
+			}
+			
+			startButton.addEventListener("click",function(){
+				if(isRunning) return;
+				isRunning = true;
+				startTime = Date.now();
+				updateTimerText();
+				setButtonState(false,true,true,false);
+			});
+			
+			stopButton.addEventListener("click",function(){
+				if(!isRunning) return;
+				isRunning = false;
+				elapsedTime += Date.now() - startTime;
+				clearTimeout(timerId);
+				setButtonState(true,false,false,true);
+			});
+			
+			lapButton.addEventListener("click",function(){
+				if(!isRunning) return;
+				var l = Date.now() - startTime + elapsedTime;
+				var l = (l / 1000).toFixed(2);
+				lapText.innerHTML = zeroFormat(l);
+			});
+
+			resetButton.addEventListener("click",function(){
+				if(isRunning) return;
+				timerText.innerHTML = "00.00";
+				lapText.innerHTML = "00.00";
+				elapsedTime = 0;
+				setButtonState(true,false,false,false);
+			});
+			
+			function updateTimerText(){
+				timerId = setTimeout(function(){
+					var t = Date.now() - startTime + elapsedTime;
+					var t = (t / 1000).toFixed(2);
+					timerText.innerHTML = zeroFormat(t);
+					updateTimerText();
+				}, 10);
+			}
+		})();
+	</script>
+</body>
+</html>

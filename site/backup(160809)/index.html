@@ -1,0 +1,132 @@
+﻿﻿<!DOCTYPE html>	<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>Esashika's Portfolio</title>
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/sanitize.css">
+	<link rel="stylesheet" href="css/flexslider.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="shortcut icon" href="img/favicon.ico">
+	<link rel="apple-touch-icon" href="img/favicon.ico">
+</head>
+
+<body>
+	<nav>
+		<a href="#section1">トップ</a>
+		<a href="#section2">紹　介</a>
+		<a href="#section3">作　品</a>
+	</nav>
+<main>
+	<section id="section1">
+		<img src="img/eyecatch.jpg" alt="eyecatch">
+		<img src="img/logo.gif" alt="logo">
+		<p class="top">エサシカのwebポートフォリオへようこそ</p>
+	</section>
+	<section id="section2">
+		<h1>自己紹介</h1>
+			<p>フロントエンド開発とUI/UXデザインを勉強中の大学生, <ruby>江<rt>エ</rt>刺<rt>サシ</rt>家<rt>カ</rt></ruby> と申す者です。</p><p>
+			webコーダーとして２年半ほどアルバイトをしていました。</p><p>
+			ユーザー中心設計を学び、「真にユーザーニーズに沿ったデザイン」を追い求めて今日もPCに向かっています。</p><p>
+			ご連絡いただける方はこちらの<a href="http://form1.fc2.com/form/?id=245312fcb0fdff72" target="_blank">お問い合わせフォーム</a>へお願いいたします。</p>
+		<h2>保有スキル</h2>
+			<ul>
+				<li>HTML</li>
+				<li>CSS</li>
+				<li>JavaScript</li>
+				<li>jQuery</li>
+				<li>Bootstrap</li>
+				<li>レスポンシブ</li>
+				<li>Dreamweaver</li>
+				<li>Photoshop</li>
+				<li>Illustrator</li>
+				<li>WordPress</li>
+				<li>PHP</li>
+				<li>MySQL</li>
+			</ul>
+	</section>
+	<section id="section3">
+		<h1>作品一覧</h1>
+		<p>過去に制作した作品リストです。<br>画像をクリックすると詳細ページが開きます。</p>
+		<div class="flexslider">
+			<ul class="slides">
+				<li>
+					<a href="works/popken/detail.html" target="_blank">
+						<span class="badge">web</span>
+						<img src="works/popken/pop.png" alt="ポピュラーミュージック創作研究会">
+						<h3>ポピュラーミュージック創作研究会</h3>
+					</a>
+				</li>
+				<li>
+					<a href="works/shobunkan/detail.html" target="_blank">
+						<span class="badge">web</span>
+						<img src="works/shobunkan/shobunkan.png" alt="尚文館マルチメディア施設">
+						<h3>尚文館マルチメディア施設</h3>
+					</a>
+				</li>
+				<li>
+					<a href="/works/french/detail.html" target="_blank">
+						<span class="badge">web</span>
+						<img src="works/french/french.png" alt="フランス語学習教材">
+						<h3>フランス語学習教材</h3>
+					</a>
+				</li>
+				<li>
+					<a href="works/svg/detail.html" target="_blank">
+						<span class="badge">web</span>
+						<img src="works/svg/svg.png" alt="Random SVG">
+						<h3>Random SVG</h3>
+					</a>
+				</li>
+				<li>
+					<a href="works/JavaScript/detail.html" target="_blank">
+						<span class="badge">web</span>
+						<img src="works/JavaScript/counter.png" alt="Word Counter">
+						<h3>Word Counter</h3>
+					</a>
+				</li>
+				<li>
+					<a href="works/poster/detail.html" target="_blank">
+						<span class="badge print">print</span>
+						<img src="works/poster/poster.png" alt="poster">
+						<h3>Poster</h3>
+					</a>
+				</li>
+				<li>
+					<a href="works/meishi/detail.html" target="_blank">
+						<span class="badge print">print</span>
+						<img src="works/meishi/businesscard.png" alt="Business Card">
+						<h3>Business Card</h3>
+					</a>
+				</li>
+				<li>
+					<span class="badge other">movie</span>
+					<div class="movie"><iframe src="https://www.youtube.com/embed/videoseries?list=PLDE5GEXwxzFoV1VUjsW7bx0T_57H7bcQU" allowfullscreen></iframe></div>
+					<h3>After Effects Animaiton</h3>
+				</li>
+			</ul>
+		</div>
+	</section>
+</main>
+<footer>
+	© 2016 Esashika's Portfolio
+</footer>
+	<script src="js/jquery-1.11.2.min.js"></script>
+	<script src="js/jquery.flexslider-min.js"></script>
+	<script>
+		$(window).load(function() {
+			$(".flexslider").flexslider({
+				animation:"slide",
+				slideshow:false,
+				pauseOnAction:false,
+			});
+		});
+		$(function(){
+			$("a[href^=#]").click(function(){
+				$("html,body").animate({
+					scrollTop: $($(this).attr("href")).offset().top - 0}, 600 ,"swing");
+				return false;
+			})
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html> <html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>おみくじ</title>
+	<link rel="stylesheet" href="http://esashika-portfolio.jp/css/sanitize.css">
+	<style>
+		html{
+			background:rgba(255, 0, 0, 0.1) !important;
+		}
+		body{
+			text-align:center;
+			font-size:16px;
+			color:white;
+		}
+		#result{
+			margin:30px auto;
+			width:180px;
+			height:180px;
+			border-radius:50%;
+			line-height:180px;
+			font-size:48px;
+			font-weight:bold;
+			background:#f44336;
+			box-shadow:0 2px 10px rgba(0,0,0,0.3);
+		}
+		#btn{
+			margin:0 auto;
+			width:200px;
+			padding:5px;
+			border-radius:5px;
+			background:#00aaff;
+			box-shadow:0 4px 0 #0088cc;
+			cursor:pointer;
+		}
+		#btn:hover{
+			opacity:0.8
+		}
+		#btn.pushed{
+			margin-top: 32px;
+			box-shadow:0 2px 0 #0088cc;
+		}
+	</style>
+</head>
+<body>
+	<div id="result">?</div>
+	<div id="btn">あなたの運勢は？</div>
+	
+	<script>
+		(function() {
+			"use strict";
+			document.getElementById("btn").addEventListener("click", function() {
+				var omikuji = ["区", "小吉", "中吉", "大吉", "吉", "末吉", "凶"];
+				var result = Math.floor(Math.random() * omikuji.length);
+			document.getElementById("result").innerHTML = omikuji[result];
+			});
+			document.getElementById("btn").addEventListener("mousedown", function() {
+				this.className = "pushed";
+			});
+			document.getElementById("btn").addEventListener("mouseup", function() {
+				this.className = "";
+			});
+		})();
+	</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html> <html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>文字数カウンター</title>
+	<link rel="stylesheet" href="http://esashika-portfolio.jp/css/sanitize.css">
+	<style>
+		html{
+			background:rgba(0,0,0,0.1) !important;
+		}
+		body{
+			margin:5%;
+			text-align:center;
+		}
+		h1{
+			font-size:200%;
+		}
+		#memo{
+			width:70%;
+			height:20em;
+			background:rgba(0,0,0,0.8);
+			color:white;
+			padding:0.5em;
+		}
+		p{
+			font-weight:bold;
+			font-size:120%;
+		}
+		input{
+			background:black;
+			color:white;
+			padding:0.5% 2%;
+			margin-left:1em;
+			border-radius:20%;
+			cursor:pointer;
+			-webkit-transition: all .3s;
+			transition: all .3s;
+			border:outset;
+		}
+		input:hover{
+			background:white;
+			color:black;
+			border:black inset;
+		}
+		@media all and (max-width:600px){
+			#memo{
+				width:100%;
+			}
+		}
+	</style>
+</head>
+<body>
+	<h1>文字数カウンター</h1>
+	<textarea id="memo"></textarea>
+	<p>
+		<span id="count">0</span>　字
+		<input type="button" id="clear" value="消去">
+	</p>
+<script src="http://esashikaportfolio.hp2.jp/js/jquery-1.11.2.min.js"></script>
+<script>
+	$(function(){
+		var memo = $("#memo");
+		var count = $("#count");
+		memo.focus();
+		
+		memo.keyup(function(){
+			count.text(memo.val().length);
+			localStorage.setItem("memo",memo.val());
+		});
+
+		if(localStorage.getItem("memo")){
+			memo.val(localStorage.getItem("memo"));
+		}
+		setTimeout(count.text(memo.val().length), 1000);
+		
+		$("#clear").click(function(){
+			memo.val("");
+			localStorage.clear();
+			count.text(memo.val().length);
+		});
+	});
+</script>
+</body>
+</html>
