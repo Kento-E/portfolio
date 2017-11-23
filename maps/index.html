@@ -20,18 +20,17 @@
       'address': '大阪市北区'
     }, function(result, status){
       if(status == google.maps.GeocoderStatus.OK){
-
+        var latlng = result[0].geometry.location;
+        var opts = {
+          zoom: 15,
+          center: latlng,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById('map'), opts);
       } else {
         alert('Status Error!');
       }
     });
-    var latlng = new google.maps.LatLng(34.7025,135.4955);
-    var opts = {
-      zoom: 15,
-      center: latlng,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    var map = new google.maps.Map(document.getElementById('map'), opts);
 
     var infoWindow = new google.maps.InfoWindow({
       content: '<h2>JR大阪駅</h2>',
