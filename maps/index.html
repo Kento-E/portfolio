@@ -24,12 +24,19 @@
 
     var infoWindow = new google.maps.InfoWindow({
       content: '<h2>JR大阪駅</h2>',
-      position: map.getCenter()
     });
-    infoWindow.open(map);
+
+    var marker = new google.maps.Marker({
+      position: map getCenter(),
+      map: map
+    });
+
+    google.maps.event.addListener(marker,'click',function(){
+      infoWindow.open(map,marker);
+  });
 
     google.maps.event.addListener(map, 'click', function(event){
-      var marker = new google.maps.Marker({
+      var markers = new google.maps.Marker({
         position: event.latLng,
         draggable: true,
         // icon: new google.maps.MarkerImage('icon.png'),
