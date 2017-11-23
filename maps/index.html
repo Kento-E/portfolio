@@ -27,6 +27,13 @@
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         var map = new google.maps.Map(document.getElementById('map'), opts);
+
+        google.maps.event.addListener(map,'click',function(event){
+          var marker = new google.maps.Marker({
+            position: event.latLng,
+            map: map
+          });
+        });
       } else {
         alert('Status Error!');
       }
@@ -34,11 +41,6 @@
 
     var infoWindow = new google.maps.InfoWindow({
       content: '<h2>JR大阪駅</h2>',
-    });
-
-    var marker = new google.maps.Marker({
-      position: map.getCenter(),
-      map: map
     });
 
     google.maps.event.addListener(marker,'click',function(){
