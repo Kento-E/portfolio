@@ -37,7 +37,10 @@
             'latLng': event.latLng
           }, function(result,status){
             if(status == google.maps.GeocoderStatus.OK){
-
+              var infoWindow = new google.maps.InfoWindow({
+                content: result[0].formatted_address
+              });
+              infoWindow.open(map,marker);
             } else {
               alert('Status Error!');
             }
@@ -48,23 +51,15 @@
       }
     });
 
-    var infoWindow = new google.maps.InfoWindow({
-      content: '<h2>JR大阪駅</h2>',
-    });
-
-    google.maps.event.addListener(marker,'click',function(){
-      infoWindow.open(map,marker);
-  });
-
-    google.maps.event.addListener(map, 'click', function(event){
-      var markers = new google.maps.Marker({
-        position: event.latLng,
-        draggable: true,
-        // icon: new google.maps.MarkerImage('icon.png'),
-        title: 'マーカー',
-        map: map
-      });
-    });
+    // google.maps.event.addListener(map, 'click', function(event){
+    //   var markers = new google.maps.Marker({
+    //     position: event.latLng,
+    //     draggable: true,
+    //     // icon: new google.maps.MarkerImage('icon.png'),
+    //     title: 'マーカー',
+    //     map: map
+    //   });
+    // });
   </script>
 </body>
 </html>
