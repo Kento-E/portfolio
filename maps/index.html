@@ -33,6 +33,15 @@
             position: event.latLng,
             map: map
           });
+          geocoder.geocode({
+            'latLng': event.latLng
+          }, function(result,status){
+            if(status == google.maps.GeocoderStatus.OK){
+
+            } else {
+              alert('Status Error!');
+            }
+          });
         });
       } else {
         alert('Status Error!');
