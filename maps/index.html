@@ -21,44 +21,45 @@
   </p>
   <div id="map"></div>
   <script>
+  var geocoder = new google.maps.Geocoder();
+  geocoder.geocode({
+    'address': '大阪市北区'
+  }, function(result,status){
+    if(status == google.maps.GeocoderStatus.OK){
+      var latlng = result[0].geometry.location;
+      var opts = {
+        zoom: 17,
+        center: latlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      var map = new google.maps.Map(document.getElementById('map'), opts);
+
+      // var infoWindow = new google.maps.InfoWindow({
+      //   content: result[0].formatted_address
+      // });
+      // infoWindow.open(map,marker);
+    } else {
+      alert('Status Error!');
+    }
+  });
+
   function moveMap(){
     // geocoding: 住所から緯度経度を変換する
-    var geocoder = new google.maps.Geocoder();
     geocoder.geocode({
       'address': document.getElementById('address').value
     }, function(result, status){
       if(status == google.maps.GeocoderStatus.OK){
-        var latlng = result[0].geometry.location;
-        var opts = {
-          zoom: 17,
-          center: latlng,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById('map'), opts);
+        map.panTo(result[0].geometry.location);
+        var marker = new google.maps.Marker({
+          position: result[0].geometry.location,
+          map: map
+        });
       } else {
         alert('Status Error!');
       }
     });
   }
 
-  // google.maps.event.addListener(map,'click',function(event){
-  //   var marker = new google.maps.Marker({
-  //     position: event.latLng,
-  //     map: map
-  //   });
-  //   geocoder.geocode({
-  //     'latLng': event.latLng
-  //   }, function(result,status){
-  //     if(status == google.maps.GeocoderStatus.OK){
-  //       var infoWindow = new google.maps.InfoWindow({
-  //         content: result[0].formatted_address
-  //       });
-  //       infoWindow.open(map,marker);
-  //     } else {
-  //       alert('Status Error!');
-  //     }
-  //   });
-  // });
     // google.maps.event.addListener(map, 'click', function(event){
     //   var markers = new google.maps.Marker({
     //     position: event.latLng,
