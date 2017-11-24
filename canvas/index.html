@@ -7,6 +7,7 @@
     #canvas {
       border: 10px solid #999;
       cursor: crosshair;
+      width: 50%;
     }
     .thumbs {
       border: 2px solid #999;
@@ -49,15 +50,17 @@
              borderWidth = ($('#canvas').outerWidth() - $('#canvas').innerWidth())/2,
              isDrawing = false;
 
-         $('#canvas').mousedown(function(e){
+         $('#canvas').bind('touchstart',function(e){
            isDrawing = true;
-           startX = e.pageX - $(this).offset().left - borderWidth;
-           startY = e.pageY - $(this).offset().top - borderWidth;
-           })
-           .mousemove(function(e){
+           event.preventDefault();
+           startX = e.changedTouches[0].pageX - $(this).offset().left - borderWidth;
+           startY = e.changedTouches[0].pageY - $(this).offset().top - borderWidth;
+         })
+           .bind('touchmove',function(e){
              if (!isDrawing) return;
-             x = e.pageX - $(this).offset().left - borderWidth;
-             y = e.pageY - $(this).offset().top - borderWidth;
+             event.preventDefault();
+             x = e.changedTouches[0].pageX - $(this).offset().left - borderWidth;
+             y = e.changedTouches[0].pageY - $(this).offset().top - borderWidth;
              ctx.beginPath();
              ctx.moveTo(startX, startY);
              ctx.lineTo(x, y);
@@ -65,10 +68,10 @@
              startX = x;
              startY = y;
            })
-           .mouseup(function(){
+           .bind('touchend',function(){
              isDrawing = false;
            })
-           .mouseleave(function(){
+           .bind('touchcancel',function(){
              isDrawing = false;
          });
 
