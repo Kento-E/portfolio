@@ -11,6 +11,7 @@
     #map {
       width: 80%;
       height: 80%;
+      margin: 0 auto;
     }
   </style>
 </head>
@@ -34,23 +35,6 @@
       };
       var map = new google.maps.Map(document.getElementById('map'), opts);
 
-      function moveMap(){
-        // geocoding: 住所から緯度経度を変換する
-        geocoder.geocode({
-          'address': document.getElementById('address').value
-        }, function(result, status){
-          if(status == google.maps.GeocoderStatus.OK){
-            map.panTo(result[0].geometry.location);
-            var marker = new google.maps.Marker({
-              position: result[0].geometry.location,
-              map: map
-            });
-          } else {
-            alert('Status Error!');
-          }
-        });
-      }
-
       // var infoWindow = new google.maps.InfoWindow({
       //   content: result[0].formatted_address
       // });
@@ -59,6 +43,25 @@
       alert('Status Error!');
     }
   });
+
+  function moveMap(){
+    // geocoding: 住所から緯度経度を変換する
+    var map = new google.maps.Map(document.getElementById('map'));
+
+    geocoder.geocode({
+      'address': document.getElementById('address').value
+    }, function(result, status){
+      if(status == google.maps.GeocoderStatus.OK){
+        map.panTo(result[0].geometry.location);
+        var marker = new google.maps.Marker({
+          position: result[0].geometry.location,
+          map: map
+        });
+      } else {
+        alert('Status Error!');
+      }
+    });
+  }
 
     // google.maps.event.addListener(map, 'click', function(event){
     //   var markers = new google.maps.Marker({
