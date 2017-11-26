@@ -39,6 +39,14 @@
           ls.setItem('user', JSON.stringify(user));
           console.dir(JSON.parse(ls.getItem('user')));
 
+          window.addEventListener('storage', function(e){
+            // e.key
+            // e.oldValue, e.newValue,
+            // e.storageArea
+            // e.url
+            console.log(e.key + ':' + e.oldValue + '→' + e.newValue);
+          });
+
           //removeItem(key);
           //clear();
         }
