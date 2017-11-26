@@ -28,6 +28,17 @@
             console.log(ls.key(i) +  ':' + ls.getItem(ls.key(i)));
           }
 
+          // JSON.stringify : JSON→文字列
+          // JSON.parse : 文字列→JSON
+
+          var user = {
+            name: 'Mike',
+            score: 80
+          }
+
+          ls.setItem('user', JSON.stringify(user));
+          console.dir(JSON.parse(ls.getItem('user')));
+
           //removeItem(key);
           //clear();
         }
