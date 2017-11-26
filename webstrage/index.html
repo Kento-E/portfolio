@@ -13,14 +13,23 @@
           //同一Originでデータを保存
           //sesstionStorage: タブが閉じられるまで有効
           //localStorage: ブラウザ自体にずっと保存
-          var s = sessionStorage;
-          var l = localStorage;
+          var ss = sessionStorage;
+          var ls = localStorage;
 
-          s.setItem('name','John');
-          console.log(s.getItem('name'));
+          ss.setItem('name','John');
+          console.log(ss.getItem('name'));
 
-          l.setItem('name','Tom');
-          console.log(l.getItem('name'));
+          ls.setItem('name','Tom');
+          ls.setItem('aa','01');
+          ls.setItem('bb','02');
+          ls.setItem('cc','03');
+
+          for (var i = 0; i<ls.length; i++) {
+            console.log(ls.key(i) +  ':' + ls.getItem(ls.key(i)));
+          }
+
+          //removeItem(key);
+          //clear();
         }
       })();
     </script>
