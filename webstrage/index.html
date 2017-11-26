@@ -10,7 +10,17 @@
         if (typeof(Strage)==='undefined'){
           alert('Web Strage is Not Supported.');
         } else {
-          console.log('Web Strage is Supported.');
+          //同一Originでデータを保存
+          //sesstionStrage: タブが閉じられるまで有効
+          //localStrage: ブラウザ自体にずっと保存
+          var s = sesstionStrage;
+          var l = localStrage;
+
+          s.setItem('name','John');
+          console.log(s.getItem('name'));
+
+          l.setItem('name','Tom');
+          console.log(l.getItem('name'));
         }
       })();
     </script>
