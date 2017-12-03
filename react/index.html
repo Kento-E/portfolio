@@ -1,12 +1,12 @@
 <!DOCTYPE html>
+<!-- https://qiita.com/stivan622/items/96777804fd0d9ba1f6d1 -->
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <title>React Learning</title>
 </head>
 <body>
-  <div id="content">
-  </div>
+  <div id="content"></div>
   <!-- reactとreact-domのライブラリを読み込む -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.js"></script>
@@ -15,10 +15,59 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.10.3/babel.min.js"></script>
 
   <script type="text/babel">
-      ReactDOM.render(
-        <h1>Hello, World</h1>,
-        document.getElementById('content')
+    const style = {
+      container: {
+        color: '#66e',
+        fontSize: 32
+      }
+    };
+    class TodoApp extends React.Component {
+      constructor(props) {
+        super(props);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.state = {items: [ ], text: ''};
+      }
+      render() {
+        return (
+          <div>
+            <h1 style={style.container}>ToDo App</h1>
+            <form onSubmit={this.handleSubmit}>
+              <input onChange={this.handleChange} value={this.state.text} />
+              <button>Add</button>
+            </form>
+            <TodoList items={this.state.items} />
+          </div>
+        );
+      }
+
+      handleChange(e) {
+        this.setState({text: e.target.value});
+      }
+      handleSubmit(e) {
+        e.preventDefault();
+        const newItem = this.state.text;
+        this.setState((prevState) => ({
+          items: prevState.items.concat(newItem),
+          text: ''
+        }));
+      }
+    }
+
+    const TodoList = (props) => {
+      return (
+        <ul>
+          {props.items.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
       );
+    }
+
+    ReactDOM.render(
+      <TodoApp />,
+      document.getElementById('content')
+    );
   </script>
 </body>
 </html>
