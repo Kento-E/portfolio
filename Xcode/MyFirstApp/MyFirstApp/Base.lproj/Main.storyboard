@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G18013" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mLv-Av-JyO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G18013" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -25,85 +25,32 @@
                                 <rect key="frame" x="155" y="319" width="65" height="30"/>
                                 <state key="normal" title="Tap Me♡"/>
                                 <connections>
-                                    <segue destination="7WY-vO-f6v" kind="show" id="C8I-8O-PnQ"/>
+                                    <action selector="changeLabel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ab4-Pl-dzr"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Change Me!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oK6-hr-uex">
+                                <rect key="frame" x="82" y="100" width="210" height="64"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="b48-2M-0Xu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="2HU-5z-j0s"/>
                             <constraint firstItem="b48-2M-0Xu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Fv2-sf-6gB"/>
+                            <constraint firstItem="oK6-hr-uex" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PUC-OU-IWJ"/>
+                            <constraint firstItem="oK6-hr-uex" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="bDc-OP-quK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2Yk-Rq-UBm"/>
+                    <connections>
+                        <outlet property="myLabel" destination="oK6-hr-uex" id="idP-8u-dqg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="135.38230884557723"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="acU-qE-Jfz">
-            <objects>
-                <viewController id="7WY-vO-f6v" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cI3-JD-GXJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="mry-C8-qjo"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="f9V-TO-1vY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1b-Yw-Aqc">
-                                <rect key="frame" x="160" y="318" width="55" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Tap Me."/>
-                                <connections>
-                                    <segue destination="GSg-16-8YV" kind="show" id="DkZ-ei-3v3"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="0.44163929525296175" blue="0.45543854239313986" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pKs-TW-yy9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1756" y="137.18140929535232"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="FmI-TK-lX2">
-            <objects>
-                <viewController id="GSg-16-8YV" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="VJA-Ep-RoB"/>
-                        <viewControllerLayoutGuide type="bottom" id="JQ1-eM-68e"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Qge-7g-GkV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.37224790387388218" green="1" blue="0.71255491646329849" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="75t-Kh-BHc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2415.1999999999998" y="129.98500749625188"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Cb8-Ha-whE">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mLv-Av-JyO" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="t0P-ob-8XA">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="kA2-gx-uqu"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="E6Z-TO-bgL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="135.38230884557723"/>
         </scene>
     </scenes>
 </document>

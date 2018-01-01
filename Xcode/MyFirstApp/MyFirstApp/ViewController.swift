@@ -9,11 +9,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    @IBAction func unwindToTop(segue: UIStoryboardSegue) {
-    
-    }
 
+    @IBOutlet weak var myLabel: UILabel!
+    @IBAction func changeLabel(_ sender: Any) {
+        myLabel.text = "You Changed Me!"
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
