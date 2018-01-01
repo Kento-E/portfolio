@@ -51,10 +51,24 @@
                     <view key="view" contentMode="scaleToFill" id="Nu0-Y3-PQE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DbS-QL-HRM">
+                                <rect key="frame" x="157" y="319" width="62" height="30"/>
+                                <state key="normal" title="Go Back."/>
+                                <connections>
+                                    <segue destination="8fs-Ix-Ilz" kind="unwind" unwindAction="unwindToTopWithSegue:" id="GSe-z5-NBu"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DbS-QL-HRM" firstAttribute="centerY" secondItem="Nu0-Y3-PQE" secondAttribute="centerY" id="T2o-4C-SlL"/>
+                            <constraint firstItem="DbS-QL-HRM" firstAttribute="centerX" secondItem="Nu0-Y3-PQE" secondAttribute="centerX" id="sFJ-KX-eNi"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UTm-VW-tHP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="8fs-Ix-Ilz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="863" y="140"/>
         </scene>
