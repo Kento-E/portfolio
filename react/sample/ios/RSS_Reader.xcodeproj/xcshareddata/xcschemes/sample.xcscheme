@@ -30,8 +30,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
                BuildableName = "sample.app"
-               BlueprintName = "sample"
-               ReferencedContainer = "container:sample.xcodeproj">
+               BlueprintName = "RSS_Reader"
+               ReferencedContainer = "container:RSS_Reader.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "sampleTests.xctest"
-               BlueprintName = "sampleTests"
-               ReferencedContainer = "container:sample.xcodeproj">
+               BuildableName = "RSS_ReaderTests.xctest"
+               BlueprintName = "RSS_ReaderTests"
+               ReferencedContainer = "container:RSS_Reader.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +61,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "sampleTests.xctest"
-               BlueprintName = "sampleTests"
-               ReferencedContainer = "container:sample.xcodeproj">
+               BuildableName = "RSS_ReaderTests.xctest"
+               BlueprintName = "RSS_ReaderTests"
+               ReferencedContainer = "container:RSS_Reader.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -72,8 +72,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "sample.app"
-            BlueprintName = "sample"
-            ReferencedContainer = "container:sample.xcodeproj">
+            BlueprintName = "RSS_Reader"
+            ReferencedContainer = "container:RSS_Reader.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -95,8 +95,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "sample.app"
-            BlueprintName = "sample"
-            ReferencedContainer = "container:sample.xcodeproj">
+            BlueprintName = "RSS_Reader"
+            ReferencedContainer = "container:RSS_Reader.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -114,8 +114,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "sample.app"
-            BlueprintName = "sample"
-            ReferencedContainer = "container:sample.xcodeproj">
+            BlueprintName = "RSS_Reader"
+            ReferencedContainer = "container:RSS_Reader.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
