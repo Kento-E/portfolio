@@ -1,71 +1,162 @@
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
- * @flow
  */
+'use strict';
 
-import React, { Component } from 'react';
-import {
-  Platform,
+var React = require('react-native');
+// var ReactDOM = require('react-dom');
+var createReactClass = require('create-react-class');
+// import createReactClass from 'create-react-class';
+
+var {
+  AppRegistry,
   StyleSheet,
   Text,
-  View
-} from 'react-native';
-import TodoInput from './src/components/TodoInput';
+  View,
+  ListView,
+  Image,
+  NavigatorIOS,
+  TouchableWithoutFeedback,
+  WebView
+} = React;
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+var QIITA_URL = "https://qiita.com/api/v2/tags/reactjs/items";
 
-export default class App extends Component<{}> {
-  render() {
+// ベースのUINavigationControllerに該当するもの
+var ReactQiitaNavigator = createReactClass({
+  render: function() {
     return (
-      <View style={styles.container}>
-        <View style={styles.main}>
-          <TodoInput />
-        </View>
-      </View>
+      <NavigatorIOS
+        style={styles.navigator}
+        initialRoute={{
+          component: ReactQiitaList,
+          title: 'ReactQiita',
+      }}/>
     );
   }
-}
+})
 
-// export default class App extends Component<{}> {
-//   render() {
-//     return (
-//       <View style={styles.container}>
-//         <Text style={styles.welcome}>
-//           Welcome to React Native!
-//         </Text>
-//         <Text style={styles.instructions}>
-//           To get started, edit App.js
-//         </Text>
-//         <Text style={styles.instructions}>
-//           {instructions}
-//         </Text>
-//       </View>
-//     );
-//   }
-// }
+// 記事一覧リスト
+var ReactQiitaList = createReactClass({
+  getInitialState: function() {
+    return {
+      items: new ListView.DataSource({
+        rowHasChanged: (row1, row2) => row1 !== row2,
+      }),
+      loaded: false,
+    };
+  },
 
-const styles = StyleSheet.create({
+  componentDidMount: function() {
+    this.fetchData();
+  },
+
+  render: function() {
+    if (!this.state.loaded) {
+      return this.renderLoadingView();
+    }
+
+    return (
+      <ListView
+        dataSource={this.state.items}
+        renderRow={this.renderItem}
+        style={styles.listView}/>
+    );
+  },
+
+  renderLoadingView: function() {
+    return (
+      <View style={styles.container}>
+        <Text>
+          Loading movies...
+        </Text>
+      </View>
+    );
+  },
+
+  renderItem: function(item, sectionID, rowID) {
+    return (
+      <TouchableWithoutFeedback  onPress={() => this.onPressed(item)}>
+      <View style={styles.container}>
+        <Image
+          source={{uri: item.user.profile_image_url}}
+          style={styles.thumbnail}/>
+        <View style={styles.rightContainer}>
+          <Text style={styles.title}>{item.title}</Text>
+          <Text style={styles.name}>{item.user.id}</Text>
+        </View>
+      </View>
+      </TouchableWithoutFeedback>
+    );
+  },
+
+  // API呼び出し
+  fetchData: function() {
+    fetch(QIITA_URL)
+      .then((response) => response.json())
+      .then((responseData) => {
+        this.setState({
+          items: this.state.items.cloneWithRows(responseData),
+          loaded: true,
+        });
+      })
+      .done();
+  },
+
+  //セルのタッチイベント
+  onPressed: function(item) {
+    this.props.navigator.push({
+      title: item.title,
+      component: ReactQiitaItemView,
+      passProps: { url: item.url }
+    })
+  },
+});
+
+// 記事閲覧用のWebView
+var ReactQiitaItemView = createReactClass({
+  render: function() {
+    return (
+      <WebView
+        url={this.props.url}/>
+    )
+  }
+});
+
+// 各種デザイン要素
+var styles = StyleSheet.create({
+  navigator: {
+    flex: 1
+  },
   container: {
     flex: 1,
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-    paddingTop: 40,
+    backgroundColor: '#FFFFFF',
   },
-  // welcome: {
-  //   fontSize: 20,
-  //   textAlign: 'center',
-  //   margin: 10,
-  // },
-  // instructions: {
-  //   textAlign: 'center',
-  //   color: '#333333',
-  //   marginBottom: 5,
-  // },
+  rightContainer: {
+    flex: 1,
+  },
+  title: {
+    fontSize: 15,
+    margin: 8,
+    textAlign: 'left',
+  },
+  name: {
+    fontSize: 12,
+    margin: 8,
+    textAlign: 'left',
+  },
+  thumbnail: {
+    width: 80,
+    height: 80,
+    margin: 2,
+  },
+  listView: {
+    backgroundColor: '#FFFFFF',
+  },
 });
+
+AppRegistry.registerComponent('ReactQiita', () => ReactQiitaNavigator);
