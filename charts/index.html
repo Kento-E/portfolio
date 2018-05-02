@@ -9,6 +9,24 @@
     <div id="target"></div>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script>
+        (function () {
+            'use strict';
+
+            function drawChart() {
+                var target = document.getElementById('target'),
+                    data,
+                    options = {
+                        title: 'My Chart',
+                        width: 500,
+                        height: 300
+                    },
+                    chart = new google.visualization.PieChart(target);
+                    chart.draw(data, options);
+            }
+
+            google.charts.load('current', {packages: ['corechart']});
+            google.charts.setOnloadCallback(drawChart);
+        })();
     </script>
 </body>
 </html>
