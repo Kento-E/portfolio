@@ -23,12 +23,18 @@
                         height: 300
                     },
                     chart = new google.visualization.PieChart(target);
-                data = new google.visualization.DataTable();
-                data.addColumn('string', 'Language');
-                data.addColumn('number', 'Votes');
-                data.addRow(['PHP', 30])
-                data.addRow(['Ruby', 20])
-                data.addRow(['Python', 10])
+                // data = new google.visualization.DataTable();
+                // data.addColumn('string', 'Language');
+                // data.addColumn('number', 'Votes');
+                // data.addRow(['PHP', 30]);
+                // data.addRow(['Ruby', 20]);
+                // data.addRow(['Python', 10]);
+                data = new google.visualization.arrayToDataTable([
+                    ['Language', 'Votes'],
+                    ['PHP', 100],
+                    ['Ruby', 20],
+                    ['Python', 10]
+                ]);
                 chart.draw(data, options);
             }
 
