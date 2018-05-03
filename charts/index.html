@@ -18,9 +18,16 @@
                 var target = document.getElementById('target'),
                     data,
                     options = {
-                        title: 'My Chart',
+                        title: 'Sample Chart',
                         width: 500,
-                        height: 300
+                        height: 300,
+                        backgroundColor: '#f8f8f8',
+                        colors: ['#00c', '#c00', '#cc0'],
+                        slices: [1, {
+                            offset: .3
+                        }],
+                        // pieHole: .4,
+                        is3D: true
                     },
                     chart = new google.visualization.PieChart(target);
                 // data = new google.visualization.DataTable();
