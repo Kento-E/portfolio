@@ -97,11 +97,17 @@
                     },
                     l_chart = new google.visualization.LineChart(line),
                     l_data = new google.visualization.arrayToDataTable([
-                        ['Year', 'Mr. A', 'Ms. B'],
-                        ['2014', 52, 89],
-                        ['2015', 38, 78],
-                        ['2016', 44, 88],
-                        ['2017', 62, 91]
+                        ['Year', 'Mr. A', {
+                            role: 'annotation'
+                        }, {
+                            role: 'certainty'
+                        }, 'Ms. B', {
+                            role: 'certainty'
+                        }],
+                        ['2014', 52, 'Campaign A', true, 89, true],
+                        ['2015', 38, null, true, 78, true],
+                        ['2016', 44, null, true, 88, true],
+                        ['2017', 62, null, false, 91, false]
                     ]);
                 l_chart.draw(l_data, l_options);
             }
