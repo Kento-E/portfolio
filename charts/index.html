@@ -11,6 +11,7 @@
     <div id="pie"></div>
     <div id="bar"></div>
     <div id="column"></div>
+    <div id="line"></div>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script>
         (function() {
@@ -76,11 +77,41 @@
                 c_chart.draw(b_data, b_options);
             }
 
+            function drawLine() {
+                var bar = document.getElementById('line'),
+                    l_data,
+                    l_options = {
+                        title: 'Line Chart',
+                        width: 500,
+                        height: 300,
+                        backgroundColor: '#f8f8f8',
+                        hAxis: {
+                            title: 'Year'
+                        },
+                        vAxis: {
+                            title: 'Sales'
+                        },
+                        curveType: 'function',
+                        pointSize: 5,
+                        pointShape: 'square'
+                    },
+                    l_chart = new google.visualization.LineChart(line),
+                    l_data = new google.visualization.arrayToDataTable([
+                        ['Year', 'Mr. A', 'Ms. B'],
+                        ['2014', 52, 89],
+                        ['2015', 38, 78],
+                        ['2016', 44, 88],
+                        ['2017', 62, 91]
+                    ]);
+                l_chart.draw(l_data, l_options);
+            }
+
             google.charts.load('current', {
                 packages: ['corechart']
             });
             google.charts.setOnLoadCallback(drawPie);
             google.charts.setOnLoadCallback(drawBar);
+            google.charts.setOnLoadCallback(drawLine);
         })();
     </script>
 </body>
