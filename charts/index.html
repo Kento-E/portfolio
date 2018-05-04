@@ -12,6 +12,7 @@
     <div id="bar"></div>
     <div id="column"></div>
     <div id="line"></div>
+    <div id="shared"></div>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script>
         (function() {
@@ -78,7 +79,7 @@
             }
 
             function drawLine() {
-                var bar = document.getElementById('line'),
+                var line = document.getElementById('line'),
                     l_data,
                     l_options = {
                         title: 'Line Chart',
@@ -112,14 +113,33 @@
                 l_chart.draw(l_data, l_options);
             }
 
+            function drawShared() {
+                var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/149_2IP9oy8l7CIKLStqdhHhhcFOu9jaUCdnzaiXVcZk/edit?usp=sharing');
+                query.send(handleQueryResponse);
+            }
+
+            function handleQueryResponse(response) {
+                var shared = document.getElementById('shared'),
+                    s_data,
+                    s_options = {
+                        title: 'Shared Chart',
+                        width: 500,
+                        height: 300,
+                        backgroundColor: '#f8f8f8',
+                        pointSize: 5
+                    },
+                    s_chart = new google.visualization.LineChart(shared),
+                    s_data = response.getDataTable();
+                s_chart.draw(s_data, s_options);
+            }
+
             google.charts.load('current', {
                 packages: ['corechart']
             });
-            google.charts.setOnLoadCallback(drawPie);
+            google.charts.setOnLoadCallback(drawPie, drawBar);
             google.charts.setOnLoadCallback(drawBar);
             google.charts.setOnLoadCallback(drawLine);
+            google.charts.setOnLoadCallback(drawShared);
         })();
     </script>
 </body>
-
-</html>
