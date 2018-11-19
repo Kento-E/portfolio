@@ -3,34 +3,10 @@
 <head>
   <meta charset="utf-8">
   <title>canvasでお絵かきツール</title>
-  <style>
-  body {
-    background: #eeeecc80;
-  }
-    p {
-      text-align: center;
-    }
-    input,select {
-      font-size: 40px;
-      font-weight: bold;
-      border: 1px solid;
-      background: #fff;
-      padding: 10px 20px;
-    }
-    #canvas {
-      border: 10px solid #999;
-      cursor: crosshair;
-      width: 90%;
-      margin: 20px;
-      background: #fff;
-    }
-    .thumbs {
-      border: 2px solid #999;
-      margin-right: 5px;
-      width: 30%;
-      background: #fff;
-    }
-  </style>
+	<link rel="stylesheet" href="canvas.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.min.js"></script>
+	<script src="canvas.js"></script>
 </head>
 <body>
   <canvas id="canvas" width="300" height="300">
@@ -52,71 +28,5 @@
     <input type="button" id="save" value="ギャラリーに追加">
   </p>
   <div id="gallery"></div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.min.js"></script>
-  <script>
-    $(function() {
-       var canvas = document.getElementById('canvas');
-       if (!canvas || !canvas.getContext) return false;
-         var ctx = canvas.getContext('2d'),
-             startX,
-             startY,
-             x,
-             y,
-             borderWidth = ($('#canvas').outerWidth() - $('#canvas').innerWidth())/2,
-             isDrawing = false;
-
-         $('#canvas').bind('touchstart',function(e){
-           isDrawing = true;
-           event.preventDefault();
-           startX = e.changedTouches[0].pageX;
-           startY = e.changedTouches[0].pageY;
-         })
-           .bind('touchmove',function(e){
-             if (!isDrawing) return;
-             event.preventDefault();
-             x = e.changedTouches[0].pageX - $(this).offset().left - borderWidth;
-             y = e.changedTouches[0].pageY - $(this).offset().top - borderWidth;
-             ctx.beginPath();
-             ctx.moveTo(startX, startY);
-             ctx.lineTo(x, y);
-             ctx.stroke();
-             startX = x;
-             startY = y;
-           })
-           .bind('touchend',function(){
-             isDrawing = false;
-           })
-           .bind('touchcancel',function(){
-             isDrawing = false;
-         });
-
-         $('#penColor').change(function(){
-           ctx.strokeStyle = $(this).val();
-         });
-         $('#penWidth').change(function(){
-           ctx.lineWidth = $(this).val();
-         });
-         function clear(){
-           ctx.clearRect(0, 0, canvas.width, canvas.height);
-         };
-         $('#erase').click(function(){
-           if(!confirm('本当に消去しますか？')) return;
-           clear();
-         });
-         $('#save').click(function(){
-          //  var timeStamp = new Date().format('yy-mm-dd-HH-mm-ss');
-           var img = $('<img>').attr({
-             src: canvas.toDataURL()
-           });
-           var link = $('<a>').attr({
-             href: canvas.toDataURL().replace('image/png','application/cotet-stream'),
-             download: 'canvas_' + moment().format('YY-MM-DD-HH-mm-ss') + '.png'
-           });
-           $('#gallery').append(link.append(img.addClass('thumbs')));
-           clear();
-         });
-    });
-  </script>
 </body>
 </html>
