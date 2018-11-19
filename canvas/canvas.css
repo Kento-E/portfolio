@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+body {
+	background: #eec;
+}
+p {
+	text-align: center;
+}
+input,select {
+	font-size: 40px;
+	font-weight: bold;
+	border: 1px solid;
+	background: #fff;
+	padding: 10px 20px;
+}
+#canvas {
+	border: 10px solid #999;
+	cursor: crosshair;
+	width: 90%;
+	margin: 20px;
+	background: #fff;
+}
+.thumbs {
+	border: 2px solid #999;
+	margin-right: 5px;
+	width: 30%;
+	background: #fff;
+}
